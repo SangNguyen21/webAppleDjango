@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block main-content %}
+<section style="display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh; 
+   background-color:#eee">
+     
+    <div class="card" style="width:30%;height:500px;align-items:center;border-radius:20px">
+        <h2>PAYMENT</h2>
+       
+        <input type="text" id="typeName"  siez="17" class="info form-control-lg" style="border-radius:10px;width:300px;margin-top:10px" placeholder=" Name" />
+        <input type="text" id="typeName"  siez="17" class="info form-control-lg" style="border-radius:10px;width:300px;margin-top:30px" placeholder=" Phone" />
+        <input type="text" id="typeName"  siez="17" class="info form-control-lg" style="border-radius:10px;width:300px;margin-top:30px" placeholder=" Address" />
+        <label type="text" class="info form-control-lg" style="border-radius:10px;width:300px;margin-top:30px">Total: 
+        </label>
+        <input type="text" class="info form-control-lg" style="border-radius:10px;width:300px;" value={{order.get_cart_total}} readonly>
+        <button type="button" class="btn btn-warning btn-block btn-lg" style="margin-top: 30px;">confirm</button>
+    </div>
+    
+      
+   </section>
+{% endblock main-content%}

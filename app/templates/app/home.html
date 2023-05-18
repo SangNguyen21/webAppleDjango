@@ -1,0 +1,131 @@
+ {% extends 'app/base.html' %}
+{% load static %}
+{% block main-content %}
+<!-- banner -->
+ <div class="banner" style="height: 500px;">
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="height:300px;" >
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="{% static 'app/' %}Image/banner/banner ipad gen 9 PC.jpeg" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{% static 'app/' %}Image/banner/banner iphone 14 Pro Max PC.jpeg" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{% static 'app/' %}Image/banner/ce39e0b0e6f538ab61e4.jpg" alt="Third slide">
+      </div>
+    </div>
+        
+      <div style="position: relative;">
+      <!-- Các phần tử khác trong div -->
+    
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev" style="position: absolute; bottom: 20px;">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next" style="position: absolute; bottom: 20px;">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    </div>
+  </div>
+  
+  
+  <!-- danh mục sản phẩm -->
+<!-- iphone -->
+  <div class="b-example-divider"></div>
+
+  <div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom">iPhone</h2>
+    
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5" style="height: 30%; width:1500px;">
+      
+      {% for product in products %}
+      
+      <div class="col" style="height:80%;width:auto;text-align:center">
+        <img class="product-img" src="{{product.imageURL}}" >
+        <h5>{{product.name}}</h5>
+        <h6 style="color: rgb(99, 99, 212);">{{product.price}}₫</h6>
+        <button data-product={{product.id}} data-action="add" class="btn btn-warning btn-block btn-lg update-cart" style = "visibility:{{user_login}};"> Add to cart </button>
+      </div>
+     
+      {% endfor %}
+     
+    </div>
+  </div>
+  </div>
+  <!-- ipad -->
+  <div class="b-example-divider"></div>
+
+  <div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom">iPad</h2>
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5" style="height: 30%; width:1500px;">
+      <div class="col" style="height:80%;width:auto;text-align:center">
+        <img class="product-img" src="{% static 'app/' %}Image/ipad/0006205_ipad-gen-9-102-inch-wifi-64gb_240.png" >
+        <h5>iPad gen 9 </h5>
+        <h6 style="color: rgb(99, 99, 212);">6.990.000₫</h6>
+      </div>
+      <!--  -->
+      <div class="col" style="height:80%;width:auto;text-align:center">
+        <img class="product-img" src="{% static 'app/' %}Image/ipad/0007071_ipad-pro-m2-11-inch-wifi-128gb_240.png" >
+        <h5>iPad Pro M2 11 ich</h5>
+        <h6 style="color: rgb(99, 99, 212);">20.590.000₫</h6>
+      </div>
+      <div class="col" style="height:80%;width:auto;text-align:center">
+        <img class="product-img" src="{% static 'app/' %}Image/ipad/0007301_ipad-pro-m2-129-inch-wifi-128gb_240.png" >
+        <h5>iPad Pro M2 12.9 inch</h5>
+        <h6 style="color: rgb(99, 99, 212);">28.390.000₫</h6>
+      </div>
+      <div class="col" style="height:80%;width:auto;text-align:center">
+        <img class="product-img" src="{% static 'app/' %}Image/ipad/0009725_ipad-gen-10th-109-inch-wifi-64gb_240.png" >
+        <h5>iPad gen 10</h5>
+        <h6 style="color: rgb(99, 99, 212);">10.990.000₫</h6>
+      </div>
+      <div class="col" style="height:80%;width:auto;text-align:center">
+        <img class="product-img" src="{% static 'app/' %}Image/ipad/0000593_ipad-mini-6_240.png" >
+        <h5>iPad Mini 6</h5>
+        <h6 style="color: rgb(99, 99, 212);">11.590.000₫</h6>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <!-- mac -->
+  <div class="b-example-divider"></div>
+
+  <div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom">Mac</h2>
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5" style="height: 30%; width:1500px;">
+      <div class="col" style="height:80%;width:auto;text-align:center">
+        <img class="product-img" src="{% static 'app/' %}Image/mac/0000723_macbook-air-m1-2020-8gb-ram-256gb-ssd_240.png" >
+        <h5>Macbook Air M1 2020</h5>
+        <h6 style="color: rgb(99, 99, 212);">18.590.000₫</h6>
+      </div>
+      <!--  -->
+      <div class="col" style="height:80%;width:auto;text-align:center">
+        <img class="product-img" src="{% static 'app/' %}Image/mac/0008502_macbook-air-m2-2022-8gb-ram-256gb-ssd_240.png" >
+        <h5>Macbook Air M2 2022</h5>
+        <h6 style="color: rgb(99, 99, 212);">27.490.000₫</h6>
+      </div>
+      <div class="col" style="height:80%;width:auto;text-align:center">
+        <img class="product-img" src="{% static 'app/' %}Image/mac/0008682_macbook-pro-13-inch-m2-10-core-8gb-ram-256gb-ssd_240.png" >
+        <h5>Macbook Pro 13 inch M2</h5>
+        <h6 style="color: rgb(99, 99, 212);">29.290.000₫</h6>
+      </div>
+      <div class="col" style="height:80%;width:auto;text-align:center">
+        <img class="product-img" src="{% static 'app/' %}Image/mac/0011267_macbook-pro-14-inch-m2-pro-16-core-16gb-512gb_240.jpeg" >
+        <h5>Macbook Pro 14 inch M2 Pro</h5>
+        <h6 style="color: rgb(99, 99, 212);">47.750.000₫</h6>
+      </div>
+      <div class="col" style="height:80%;width:auto;text-align:center">
+        <img class="product-img" src="{% static 'app/' %}Image/mac/0011408_macbook-pro-16-inch-m2-pro-19-core-16gb-512gb_240.jpeg" >
+        <h5>Macbook Pro 16 inch M2 Pro</h5>
+        <h6 style="color: rgb(99, 99, 212);">58.790.000₫</h6>
+      </div>
+    </div>
+  </div>
+  </div>
+{% endblock main-content %}

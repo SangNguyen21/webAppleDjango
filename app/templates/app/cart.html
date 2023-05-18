@@ -1,0 +1,68 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block main-content %}
+<body>
+    <!-- product cart -->
+  
+    <section class="h-100" style="background-color: #eee;">
+      <div class="container h-100 py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-10">
+    
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h3 class="fw-normal mb-0 text-black">Cart</h3>
+              <div>
+              </div>
+            </div>
+            <!-- sản phẩm 1 -->
+            {% for item in items %}
+            <div class="card rounded-3 mb-4">
+              <div class="card-body p-4">
+                <div class="row d-flex justify-content-between align-items-center">
+                  <div class="col-md-2 col-lg-2 col-xl-2">
+                    <img
+                      src="{{item.product.imageURL}}"
+                      class="img-fluid rounded-3">
+                  </div>
+                  <div class="col-md-3 col-lg-3 col-xl-3">
+                    <p class="lead fw-normal mb-2">{{item.product.name}}</p>
+                    <p><span class="text-muted" style="padding-left: 3px; letter-spacing: 1px;">Giá </span>{{item.product.price}} ₫<span class="text-muted">
+                  </div>
+                  <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                    
+                      <i data-product = {{item.product.id}} data-action= 'remove' class="btn px-2 update-cart fas fa-minus"></i>
+                    
+    
+                    <input  min="0" name="quantity" value="{{item.quantity}}" type="number"
+                      class="form-control form-control-sm" readonly/>
+    
+                      <i data-product = {{item.product.id}} data-action= 'add' class="btn px-2 update-cart fas fa-plus"></i>
+                  </div>
+                  <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                    <h5 class="mb-0" style="padding-left: 3px; letter-spacing: 1px;">{{item.get_total}} ₫</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+    
+            <div class="card">
+              <div class="card-body">
+                  <div class="d-flex justify-content-between p-2 mb-2">
+                      <h5 class="fw-bold mb-0">Total:</h5>
+                      <h5 class="fw-bold mb-0" style="padding-left: 3px; letter-spacing: 1px;">{{order.get_cart_total}} ₫</h5>
+                    </div>
+                <button onclick="window.location.href = {% url 'checkout' %};" type="button" class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
+                
+              </div>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+</body>
+
+{% endblock main-content %}
